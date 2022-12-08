@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div style="width: 100vw; height: 100vh; position: relative" id="mestrezada">
+
+    </div>
+    
+    <script>
+        
+        window.remocoes = [];
+        window.arr_bolas = [];
+
+        
+
+        function getRandomInt(min, max) {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+    
+    
+        document.addEventListener('click', (event) => {
+            add_bola(event);
+        });
+    
+        window.add_bola = evento => {
+            console.log(evento);
+            bola = {'Y': evento.offsetY, 'X': evento.offsetX, 'color': getRandomInt(100, 255)+','+getRandomInt(100, 255)+','+getRandomInt(100, 255)};
+            arr_bolas.push(bola);
+    
+            monta_tudo();
+        };
+    
+        window.monta_tudo = f => {
+    
+            var mestrezada = document.getElementById('mestrezada');
+            mestrezada.innerHTML = '';
+            asbolatudo = '';
+    
+            for (var v in arr_bolas){
+    
+                asbolatudo += '<div style="position: absolute; top: '+arr_bolas[v]['Y']+'px; left: '+arr_bolas[v]['X']+'px; border-radius: 50%; transform: translate(-50%, -50%); width: 60px; height: 60px; background-color: rgba('+arr_bolas[v]['color']+',1);"></div>';
+    
+            }
+    
+            mestrezada.innerHTML = asbolatudo;
+            console.log(asbolatudo);
+            console.log(arr_bolas);
+        };
+
+        document.addEventListener('keyup', (event) => {
+            //Z
+            if(event.keyCode == 90 && event.ctrlKey){
+                remocoes.push(arr_bolas[arr_bolas.length-1]);
+                arr_bolas.pop();
+
+                monta_tudo();
+            }
+
+            //Y
+            if(event.keyCode == 89 && event.ctrlKey){
+                /* console.log(remocoes); */
+                arr_bolas.push(remocoes[remocoes.length-1]);
+                remocoes.pop();
+                monta_tudo();
+
+            }
+
+        }, false);
+    </script>
+</body>
+</html>
