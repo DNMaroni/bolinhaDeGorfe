@@ -1,5 +1,7 @@
 # bolinhadegorfe
 
+Para acessar a página: https://dnmaroni.github.io/bolinhadegorfe/
+
 Criar uma aplicação que faça o seguinte.
 
 * Cada clique na tela fique uma bolinha na posição do click.
