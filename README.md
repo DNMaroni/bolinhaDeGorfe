@@ -1,6 +1,6 @@
 # bolinhadegorfe
 
-Para acessar a página: https://dnmaroni.github.io/bolinhadegorfe/
+Para acessar a página: https://dnmaroni.github.io/bolinhaDeGorfe/
 
 Desafio para criar uma aplicação que faça o seguinte.
 
